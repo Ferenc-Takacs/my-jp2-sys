@@ -1,6 +1,6 @@
 
 
-In the lib.rs contained two function for jpeg 2000 images encoding and decoding.
+In the lib.rs contain two function for jpeg 2000 images encoding and decoding.
 It reads from memory and writes to memory. If you want to work with files, you have to handle their writing and reading yourself. Only the writing of the exif information is programmed, you have to do the reading yourself after reading the image. This is also the way to go with other rust image readers, because they do not handle either the exif info or the image resolution. However, this can be crucial for printing.
 
 
