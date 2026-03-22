@@ -1,0 +1,10 @@
+[package]
+name = "my-jp2-sys"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+image = "0.25.10"
+
+[build-dependencies]
+cc = "1.2.57"
