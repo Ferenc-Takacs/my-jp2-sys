@@ -28,7 +28,7 @@ static OPJ_SIZE_T opj_write_from_mem(void* p_buffer, OPJ_SIZE_T p_size, void* p_
 	size_t required_end = p_stream->pos + p_size;
 	if (required_end > p_stream->allocated) {
 		size_t new_alloc = required_end + 0x10000; // 64KB ráhagyás
-		void* new_data = realloc(p_stream->data, new_alloc);
+		void* new_data = opj_realloc(p_stream->data, new_alloc);
 		if (!new_data) { p_stream->err = 1; return (OPJ_SIZE_T)-1; }
 		p_stream->data = (unsigned char*)new_data;
 		p_stream->allocated = new_alloc;
@@ -54,7 +54,7 @@ static OPJ_OFF_T opj_skip_from_memwrite(OPJ_OFF_T p_nb_bytes, void* p_user_data)
 	OPJ_OFF_T new_pos = (OPJ_OFF_T)p_stream->pos + p_nb_bytes;
 	if ((size_t)new_pos > p_stream->allocated) {
 		size_t new_alloc = (size_t)new_pos + 0x20000; // 128KB ráhagyás
-		void* new_data = realloc(p_stream->data, new_alloc);
+		void* new_data = opj_realloc(p_stream->data, new_alloc);
 		if (!new_data) {
 			p_stream->err = 1;
 			return (OPJ_OFF_T)-1;
